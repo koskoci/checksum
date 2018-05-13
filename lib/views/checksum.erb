@@ -1,5 +1,44 @@
-<form action="/calculate" method="post">
-  Checksum calculator<br>
-  <input type="text" name="input_string" placeholder="Enter string here"><br>
-  <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html>
+  <script>
+    function calculateChecksum() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("checksum").innerHTML = this.responseText;
+      }
+    };
+      xhttp.open("POST", "calculate", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      var input_string = document.getElementById("input_string").value;
+      var params = "input_string="+input_string;
+      xhttp.send(params);
+  }
+  </script>
+  <head>
+    <style>
+      table{
+        position: fixed;
+        top: 70px;
+        left: 70px;
+      }
+      input, button, div, td{
+        font-size: x-large;
+      }
+      button{
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td><input type="text" id="input_string" placeholder="enter text here"></td>
+        <td><button onclick="calculateChecksum()">Calculate checksum</button></td>
+        <td>----></td>
+        <td><div id="checksum"></div></td>
+      </tr>
+    </table>
+  </body>
+</html>
