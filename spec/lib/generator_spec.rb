@@ -45,7 +45,7 @@ RSpec.describe Generator do
       expect(subject.upcase_certain_vowels(input_string_1))
         .to eq "FoobarbazwIbblEfizzbUzzfIzzbUzZ"
       expect(subject.upcase_certain_vowels(input_string_2))
-        .to eq "ThequickbrOwnfOxjUmpSOverthelaZydog"
+        .to eq "ThequickbrOwnfOxjUmpSoverthelaZydog"
     end
   end
 

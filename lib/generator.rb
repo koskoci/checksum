@@ -26,9 +26,8 @@ class Generator
 
   def upcase_certain_vowels(string)
     string
-      .gsub(/[AEIOU][^aeiouAEIOU]{2,}\K[aeiou].*/) do |m|
-        upcase_certain_vowels(upcase_first_letter(m))
-      end
+      .gsub(/[AEIOU][^aeiouAEIOU]{2,}\K[aeiou]/, &:upcase)
+      .gsub(/[AEIOU][^aeiouAEIOU]{2,}\K[aeiou]/, &:upcase)
   end
 
   def calculate_checksum(string)
